@@ -1,0 +1,14 @@
+C:\Users\brian\RiderProjects\TugasKonsepPBONew\bin\Debug\net7.0\TugasKonsepPBONew.exe
+C:\Users\brian\RiderProjects\TugasKonsepPBONew\bin\Debug\net7.0\TugasKonsepPBONew.deps.json
+C:\Users\brian\RiderProjects\TugasKonsepPBONew\bin\Debug\net7.0\TugasKonsepPBONew.runtimeconfig.json
+C:\Users\brian\RiderProjects\TugasKonsepPBONew\bin\Debug\net7.0\TugasKonsepPBONew.dll
+C:\Users\brian\RiderProjects\TugasKonsepPBONew\bin\Debug\net7.0\TugasKonsepPBONew.pdb
+C:\Users\brian\RiderProjects\TugasKonsepPBONew\obj\Debug\net7.0\TugasKonsepPBONew.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\brian\RiderProjects\TugasKonsepPBONew\obj\Debug\net7.0\TugasKonsepPBONew.AssemblyInfoInputs.cache
+C:\Users\brian\RiderProjects\TugasKonsepPBONew\obj\Debug\net7.0\TugasKonsepPBONew.AssemblyInfo.cs
+C:\Users\brian\RiderProjects\TugasKonsepPBONew\obj\Debug\net7.0\TugasKonsepPBONew.csproj.CoreCompileInputs.cache
+C:\Users\brian\RiderProjects\TugasKonsepPBONew\obj\Debug\net7.0\TugasKonsepPBONew.dll
+C:\Users\brian\RiderProjects\TugasKonsepPBONew\obj\Debug\net7.0\refint\TugasKonsepPBONew.dll
+C:\Users\brian\RiderProjects\TugasKonsepPBONew\obj\Debug\net7.0\TugasKonsepPBONew.pdb
+C:\Users\brian\RiderProjects\TugasKonsepPBONew\obj\Debug\net7.0\TugasKonsepPBONew.genruntimeconfig.cache
+C:\Users\brian\RiderProjects\TugasKonsepPBONew\obj\Debug\net7.0\ref\TugasKonsepPBONew.dll
