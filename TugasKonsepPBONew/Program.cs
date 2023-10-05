@@ -1,5 +1,6 @@
 using System;
 using System.Linq.Expressions;
+using _klien;
 using _komputer;
 using Komponen._casing;
 using Komponen._motherboard;
@@ -13,20 +14,27 @@ using Corsair = Komponen._psu.Corsair;
 
 class Program
 {
+
     static void Main(string[] args)
     {
         Console.WriteLine("========================================");
         Console.WriteLine("         PC Building Simulator");
         Console.WriteLine("========================================");
-        Console.WriteLine($"Waktu klien memesan PC : {DateTime.Now.ToString("dddd, dd MMMM yyyy HH:mm:ss")}");
 
+        Klien klien1 = new Klien();
+        
+        Console.WriteLine("\nMasukkan nama");
+        klien1.namaKlien = Console.ReadLine();
+        Console.WriteLine("Masukkan No. Telpon");
+        klien1.noTelpon = (Console.ReadLine());
+        
         Komputer komputer = BuildPC();
 
         if (komputer != null)
         {
             Console.Clear();
-            Console.WriteLine("\nKomputer berhasil dirakit dengan komponen berikut :");
-            Console.WriteLine($"Merk\t\t: {komputer.merk}");
+            Console.WriteLine(klien1.rakitSelesai(DateTime.Now));
+            Console.WriteLine($"\nMerk\t\t: {komputer.merk}");
             Console.WriteLine($"Processor\t: {komputer.processor.merk} {komputer.processor.tipe}");
             Console.WriteLine($"Motherboard\t: {komputer.motherboard.merk}");
             Console.WriteLine($"VGA\t\t: {komputer.vga.merk} {komputer.vga.tipe}");
@@ -41,6 +49,36 @@ class Program
                 Console.WriteLine($"Storage\t\t: {komputer.storage.jenis} {komputer.storage.merk} {komputer.storage.kapasitas} GB");
             }
             Console.WriteLine($"Casing\t\t: {komputer.casing.merk}");
+            
+            Console.WriteLine("\nCoba komputer untuk : ");
+            Console.WriteLine("1. Main Game");
+            Console.WriteLine("2. Editing");
+            Console.WriteLine("3. Mengerjakan Tugas");
+            int pilihAktivitas = int.Parse((Console.ReadLine()));
+            
+            komputer.Nyalakan();
+
+            switch (pilihAktivitas)
+            {
+                case 1:
+                    komputer.MainGame();
+                    komputer.Matikan();
+                    break;
+                case 2:
+                    komputer.Editing();
+                    komputer.Matikan();
+                    break;
+                case 3:
+                    komputer.MengerjakanTugas();
+                    komputer.Matikan();
+                    break;
+                default:
+                    Console.WriteLine("Pilihan aktivitas tidak valid");
+                    return;
+            }
+            
+            
+
         }
         else
         {
@@ -89,7 +127,6 @@ class Program
                 Console.WriteLine("Pilihan template tidak valid.");
                 break;
         }
-
         return komputer;
     }
 
@@ -97,11 +134,17 @@ class Program
     {
         Komputer komputer = new Komputer();
         
-        komputer.merk = "Custom PC";
+        komputer.merk = "Low End Intel";
         komputer.processor = new CoreI3();
+        komputer.motherboard = new Asrock();
         komputer.vga = new GTX750();
+        komputer.ram = new Kingston();
+        komputer.ram.memory = 4;
+        komputer.psu = new Corsair();
+        komputer.storage = new Seagate();
+        komputer.storage.kapasitas = 500;
+        komputer.casing = new Simbadda();
         
-
         return komputer;
     }
 
@@ -109,10 +152,16 @@ class Program
     {
         Komputer komputer = new Komputer();
         
-        komputer.merk = "Custom PC";
+        komputer.merk = "Mid End Intel";
         komputer.processor = new CoreI5();
-        komputer.vga = new GTX1050();
-        
+        komputer.motherboard = new Gigabyte();
+        komputer.vga = new GTX1650();
+        komputer.ram = new ramCorsair();
+        komputer.ram.memory = 16;
+        komputer.psu = new Aerocool();
+        komputer.storage = new Komponen._storage.Corsair();
+        komputer.storage.kapasitas = 1;
+        komputer.casing = new Komponen._casing.Aerocool();
 
         return komputer;
     }
@@ -121,11 +170,17 @@ class Program
     {
         Komputer komputer = new Komputer();
         
-        komputer.merk = "Custom PC";
+        komputer.merk = "High End Intel";
         komputer.processor = new CoreI9();
-        komputer.vga = new RTX3060();
+        komputer.motherboard = new MoboAsus();
+        komputer.vga = new RTX4090();
+        komputer.ram = new HyperX();
+        komputer.ram.memory = 32;
+        komputer.psu = new AsusROG();
+        komputer.storage = new Komponen._storage.Corsair();
+        komputer.storage.kapasitas = 4;
+        komputer.casing = new Armageddon();
         
-
         return komputer;
     }
 
@@ -133,11 +188,16 @@ class Program
     {
         Komputer komputer = new Komputer();
         
-        komputer.merk = "Custom PC";
+        komputer.merk = "Low End AMD";
         komputer.processor = new Ryzen3();
-        komputer.vga = new RX570();
+        komputer.motherboard = new Asrock();
+        komputer.vga = new R5();
+        komputer.ram = new Kingston();
+        komputer.ram.memory = 4;
+        komputer.psu = new Corsair();
+        komputer.storage = new WDCaviar();
+        komputer.storage.kapasitas = 500;
         
-
         return komputer;
     }
 
@@ -145,11 +205,17 @@ class Program
     {
         Komputer komputer = new Komputer();
         
-        komputer.merk = "Custom PC";
+        komputer.merk = "Mid End AMD";
         komputer.processor = new Ryzen5();
+        komputer.motherboard = new MoboAsus();
         komputer.vga = new RX5600XT();
+        komputer.ram = new ramCorsair();
+        komputer.ram.memory = 16;
+        komputer.psu = new Aerocool();
+        komputer.storage = new Adata();
+        komputer.storage.kapasitas = 2;
+        komputer.casing = new Venom();
         
-
         return komputer;
     }
 
@@ -157,11 +223,14 @@ class Program
     {
         Komputer komputer = new Komputer();
         
-        komputer.merk = "Custom PC";
+        komputer.merk = "High End AMD";
         komputer.processor = new Ryzen7();
+        komputer.motherboard = new MoboAsus();
         komputer.vga = new RX6800();
+        komputer.ram = new HyperX();
+        komputer.ram.memory = 64;
+        komputer.psu = new AsusROG();
         
-
         return komputer;
     }
 
@@ -480,10 +549,35 @@ class Program
         
         return komputer;
     }
-    
-    
 }
 
+namespace _klien
+{
+    class Klien
+    {
+        private string _namaKlien;
+
+        public string namaKlien
+        {
+            get { return this._namaKlien; }
+            set { this._namaKlien = value; }
+        }
+
+        private string _noTelpon;
+
+        public string noTelpon
+        {
+            get { return this._noTelpon; }
+            set { this._noTelpon = value; }
+        }
+
+        public string rakitSelesai(DateTime waktuSelesai)
+        {
+            return
+                $"Pesanan rakitan PC atas nama {namaKlien} telah selesai pada {waktuSelesai.ToString("dddd, dd MMMM yyyy HH:mm:ss")}";
+        }
+    }
+}
 
 namespace _komputer
 {
@@ -496,7 +590,7 @@ namespace _komputer
         public void MengerjakanTugas();
     }
 
-    class Komputer
+    class Komputer : IPC
     {
         public string merk;
         public Processor processor { get; set; }
@@ -506,6 +600,29 @@ namespace _komputer
         public PSU psu { get; set; }
         public Storage storage { get; set; }
         public Casing casing { get; set; }
+        public void Nyalakan()
+        {
+            Console.WriteLine($"Komputer {merk} menyala");
+        } 
+        public void Matikan()
+        {
+            Console.WriteLine($"Komputer {merk} mati");
+        }
+
+        public void MainGame()
+        {
+            Console.WriteLine($"Komputer {merk} bermain game");
+        }
+
+        public void Editing()
+        {
+            Console.WriteLine($"Komputer {merk} sedang melakukan editing");
+        }
+
+        public void MengerjakanTugas()
+        {
+            Console.WriteLine($"Komputer {merk} sedang mengerjakan tugas");
+        }
     }
     class Asus : Komputer, IPC
     {
@@ -513,29 +630,7 @@ namespace _komputer
         {
             base.merk = "Asus";
         }
-        public void Nyalakan()
-        {
-            Console.WriteLine($"Komputer {merk} menyala");
-        } 
-        public void Matikan()
-        {
-            Console.WriteLine($"Komputer {merk} mati");
-        }
-
-        public void MainGame()
-        {
-            Console.WriteLine($"Komputer {merk} bermain game");
-        }
-
-        public void Editing()
-        {
-            Console.WriteLine($"Komputer {merk} sedang melakukan editing");
-        }
-
-        public void MengerjakanTugas()
-        {
-            Console.WriteLine($"Komputer {merk} sedang mengerjakan tugas");
-        }
+        
     }
 
     class Acer : Komputer, IPC
@@ -543,28 +638,6 @@ namespace _komputer
         public Acer()
         {
             base.merk = "Acer";
-        }
-        public void Nyalakan()
-        {
-            Console.WriteLine($"Komputer {merk} menyala");
-        } 
-        public void Matikan()
-        {
-            Console.WriteLine($"Komputer {merk} mati");
-        }
-        public void MainGame()
-        {
-            Console.WriteLine($"Komputer {merk} bermain game");
-        }
-        
-        public void Editing()
-        {
-            Console.WriteLine($"Komputer {merk} sedang melakukan editing");
-        }
-
-        public void MengerjakanTugas()
-        {
-            Console.WriteLine($"Komputer {merk} sedang mengerjakan tugas");
         }
     }
     
@@ -574,28 +647,6 @@ namespace _komputer
         {
             base.merk = "Samsung";
         }
-        public void Nyalakan()
-        {
-            Console.WriteLine($"Komputer {merk} menyala");
-        } 
-        public void Matikan()
-        {
-            Console.WriteLine($"Komputer {merk} mati");
-        }
-        public void MainGame()
-        {
-            Console.WriteLine($"Komputer {merk} bermain game");
-        }
-        
-        public void Editing()
-        {
-            Console.WriteLine($"Komputer {merk} sedang melakukan editing");
-        }
-
-        public void MengerjakanTugas()
-        {
-            Console.WriteLine($"Komputer {merk} sedang mengerjakan tugas");
-        }
     }
     
     class LG : Komputer, IPC
@@ -603,29 +654,6 @@ namespace _komputer
         public LG()
         {
             base.merk = "Asus";
-        }
-        public void Nyalakan()
-        {
-            Console.WriteLine($"Komputer {merk} menyala");
-        } 
-        public void Matikan()
-        {
-            Console.WriteLine($"Komputer {merk} mati");
-        }
-
-        public void MainGame()
-        {
-            Console.WriteLine($"Komputer {merk} bermain game");
-        }
-
-        public void Editing()
-        {
-            Console.WriteLine($"Komputer {merk} sedang melakukan editing");
-        }
-
-        public void MengerjakanTugas()
-        {
-            Console.WriteLine($"Komputer {merk} sedang mengerjakan tugas");
         }
     }
 }
