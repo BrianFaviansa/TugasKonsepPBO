@@ -40,8 +40,7 @@ class Program
             {
                 Console.WriteLine($"Storage\t\t: {komputer.storage.jenis} {komputer.storage.merk} {komputer.storage.kapasitas} GB");
             }
-
-            Console.WriteLine($"");
+            Console.WriteLine($"Casing\t\t: {komputer.casing.merk}");
         }
         else
         {
@@ -97,13 +96,11 @@ class Program
     static Komputer BuildLowEndIntelNvidiaPC()
     {
         Komputer komputer = new Komputer();
-
-        // Set komponen sesuai dengan template "pc low end intel nvidia"
+        
         komputer.merk = "Custom PC";
         komputer.processor = new CoreI3();
         komputer.vga = new GTX750();
-
-        // Anda dapat menambahkan konfigurasi komponen lain sesuai dengan kebutuhan
+        
 
         return komputer;
     }
@@ -111,13 +108,11 @@ class Program
     static Komputer BuildMidEndIntelNvidiaPC()
     {
         Komputer komputer = new Komputer();
-
-        // Set komponen sesuai dengan template "pc mid end intel nvidia"
+        
         komputer.merk = "Custom PC";
         komputer.processor = new CoreI5();
         komputer.vga = new GTX1050();
-
-        // Anda dapat menambahkan konfigurasi komponen lain sesuai dengan kebutuhan
+        
 
         return komputer;
     }
@@ -125,13 +120,11 @@ class Program
     static Komputer BuildHighEndIntelNvidiaPC()
     {
         Komputer komputer = new Komputer();
-
-        // Set komponen sesuai dengan template "pc high end intel nvidia"
+        
         komputer.merk = "Custom PC";
         komputer.processor = new CoreI9();
         komputer.vga = new RTX3060();
-
-        // Anda dapat menambahkan konfigurasi komponen lain sesuai dengan kebutuhan
+        
 
         return komputer;
     }
@@ -139,13 +132,11 @@ class Program
     static Komputer BuildLowEndAmdRadeonPC()
     {
         Komputer komputer = new Komputer();
-
-        // Set komponen sesuai dengan template "pc low end amd radeon"
+        
         komputer.merk = "Custom PC";
         komputer.processor = new Ryzen3();
         komputer.vga = new RX570();
-
-        // Anda dapat menambahkan konfigurasi komponen lain sesuai dengan kebutuhan
+        
 
         return komputer;
     }
@@ -153,13 +144,11 @@ class Program
     static Komputer BuildMidEndAmdRadeonPC()
     {
         Komputer komputer = new Komputer();
-
-        // Set komponen sesuai dengan template "pc mid end amd radeon"
+        
         komputer.merk = "Custom PC";
         komputer.processor = new Ryzen5();
         komputer.vga = new RX5600XT();
-
-        // Anda dapat menambahkan konfigurasi komponen lain sesuai dengan kebutuhan
+        
 
         return komputer;
     }
@@ -167,13 +156,11 @@ class Program
     static Komputer BuildHighEndAmdRadeonPC()
     {
         Komputer komputer = new Komputer();
-
-        // Set komponen sesuai dengan template "pc high end amd radeon"
+        
         komputer.merk = "Custom PC";
         komputer.processor = new Ryzen7();
         komputer.vga = new RX6800();
-
-        // Anda dapat menambahkan konfigurasi komponen lain sesuai dengan kebutuhan
+        
 
         return komputer;
     }
@@ -181,8 +168,7 @@ class Program
     static Komputer BuildCustomPC()
     {
         Komputer komputer = new Komputer();
-
-        // Memungkinkan pengguna memilih merk komputer
+        
         Console.Clear();
         Console.WriteLine("Pilih Merk Komputer : ");
         Console.WriteLine("1. Asus");
@@ -209,8 +195,7 @@ class Program
                 Console.WriteLine("Pilihan komputer tidak valid.");
                 return null;
         }
-
-        // Memungkinkan pengguna memilih processor
+        
         Console.Clear();
         Console.WriteLine("Pilih Processor:");
         Console.WriteLine("1. Intel Pentium");
@@ -280,8 +265,7 @@ class Program
                 Console.WriteLine("Pilihan motherboard tidak valid");
                 return null;
         }
-
-        // Memungkinkan pengguna memilih VGA
+        
         Console.Clear();
         Console.WriteLine("Pilih VGA:");  
         Console.WriteLine("1. NVIDIA GeForce GTX 750");
@@ -332,8 +316,7 @@ class Program
                 Console.WriteLine("Pilihan VGA tidak valid.");
                 return null;
         }
-
-        // Anda dapat menambahkan konfigurasi komponen lain sesuai dengan kebutuhan
+        
     
         Console.Clear();
         Console.WriteLine("Pilih RAM:");
