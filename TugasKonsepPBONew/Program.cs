@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq.Expressions;
 using _komputer;
 using Komponen._casing;
@@ -479,7 +479,20 @@ class Program
         switch (pilihCasing)
         {
             case 1:
-                komputer.casing
+                komputer.casing = new Armageddon();
+                break;
+            case 2:
+                komputer.casing = new Komponen._casing.Aerocool();
+                break;
+            case 3:
+                komputer.casing = new Venom();
+                break;
+            case 4:
+                komputer.casing = new Simbadda();
+                break;
+            default:
+                Console.WriteLine("Pilihan casing tidak valid");
+                return null;
         }
         
         return komputer;
@@ -1044,10 +1057,3 @@ namespace _casing
     }
 }
 }
-
-
-
-
-
-
-
