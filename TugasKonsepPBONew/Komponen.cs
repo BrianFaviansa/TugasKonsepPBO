@@ -17,7 +17,7 @@
             get { return this._noTelpon; }
             set { this._noTelpon = value; }
         }
-
+        
         public string rakitSelesai(DateTime waktuSelesai)
         {
             return
@@ -29,7 +29,6 @@
     {
         public void Nyalakan();
         public void Matikan();
-        public void MainGame();
         public void Editing();
         public void MengerjakanTugas();
     }
@@ -520,9 +519,13 @@
             Console.WriteLine($"Komputer {merk} mati");
         }
 
-        public void MainGame()
+        public void MainGame(string jenisGame)
         {
-            Console.WriteLine($"Komputer {merk} bermain game");
+            Console.WriteLine($"Komputer {merk} bermain game {jenisGame}");
+        }
+        public void MainGame(string jenisGame, int jumlahPemain)
+        {
+            Console.WriteLine($"Komputer {merk} bermain game {jenisGame}, dengan jumlah pemain sebanyak {jumlahPemain}");
         }
 
         public void Editing()
@@ -534,6 +537,10 @@
         {
             Console.WriteLine($"Komputer {merk} sedang mengerjakan tugas");
         }
+
+        public virtual void salamPenutup()
+        {
+        }
     }
 
     class Asus : Komputer, IPC
@@ -541,6 +548,10 @@
         public Asus()
         {
             base.merk = "Asus";
+        }
+        public override void salamPenutup()
+        {
+            Console.WriteLine($"Terimakasih sudah merakit PC disini, ASUS kami yang terbaik");
         }
     }
 
@@ -550,6 +561,10 @@
         {
             base.merk = "Acer";
         }
+        public override void salamPenutup()
+        {
+            Console.WriteLine($"Terimakasih sudah merakit PC disini, Acer kami yang terbaik");
+        }
     }
 
     class Samsung : Komputer, IPC
@@ -558,6 +573,10 @@
         {
             base.merk = "Samsung";
         }
+        public override void salamPenutup()
+        {
+            Console.WriteLine($"Terimakasih sudah merakit PC disini, Samsung kami yang terbaik");
+        }
     }
 
     class LG : Komputer, IPC
@@ -565,6 +584,10 @@
         public LG()
         {
             base.merk = "Asus";
+        }
+        public override void salamPenutup()
+        {
+            Console.WriteLine($"Terimakasih sudah merakit PC disini, Samsung kami yang terbaik");
         }
     }
 

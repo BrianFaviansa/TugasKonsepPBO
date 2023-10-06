@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq.Expressions;
-using Ngerakit;
+﻿using Ngerakit;
 
 class Program
 {
@@ -53,7 +51,19 @@ class Program
             switch (pilihAktivitas)
             {
                 case 1:
-                    komputer.MainGame();
+                    Console.Clear();
+                    Console.WriteLine("Pilih game : 1. online / 2. offline");
+                    int jenisGame = int.Parse(Console.ReadLine());
+                    if (jenisGame == 1)
+                    {
+                        Console.WriteLine("Masukkan jumlah player");
+                        int jmlPlayer = int.Parse(Console.ReadLine());
+                        komputer.MainGame("online",jmlPlayer);
+                    }
+                    else
+                    {
+                        komputer.MainGame("offline");
+                    }
                     komputer.Matikan();
                     break;
                 case 2:
@@ -68,6 +78,8 @@ class Program
                     Console.WriteLine("Pilihan aktivitas tidak valid");
                     return;
             }
+
+            komputer.salamPenutup();
         }
         else
         {
