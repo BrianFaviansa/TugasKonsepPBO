@@ -59,12 +59,14 @@ class Program
                         Console.WriteLine("Masukkan jumlah player");
                         int jmlPlayer = int.Parse(Console.ReadLine());
                         komputer.MainGame("online",jmlPlayer);
+
                     }
                     else
                     {
                         komputer.MainGame("offline");
                     }
                     komputer.Matikan();
+              
                     break;
                 case 2:
                     komputer.Editing();
@@ -80,6 +82,7 @@ class Program
             }
 
             komputer.salamPenutup();
+            Console.ReadLine();
         }
         else
         {

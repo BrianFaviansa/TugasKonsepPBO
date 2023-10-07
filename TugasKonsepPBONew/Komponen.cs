@@ -156,6 +156,7 @@
             komputer.psu = new Corsair();
             komputer.storage = new WDCaviar();
             komputer.storage.kapasitas = 500;
+            komputer.casing = new Simbadda();
 
             return komputer;
         }
@@ -189,6 +190,9 @@
             komputer.ram = new HyperX();
             komputer.ram.memory = 64;
             komputer.psu = new AsusROG();
+            komputer.storage = new Adata();
+            komputer.storage.kapasitas = 4;
+            komputer.casing = new Armageddon();
 
             return komputer;
         }
@@ -696,8 +700,7 @@
             base.merk = "Asus";
         }
     }
-
-
+    
     class Asrock : Motherboard
     {
         public Asrock()
